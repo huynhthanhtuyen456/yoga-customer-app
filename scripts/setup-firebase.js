@@ -33,7 +33,7 @@ console.log('  - Replace placeholder values with your Firebase config\n');
 console.log('📚 Next steps after configuration:');
 console.log('1. Enable Firestore Database in Firebase Console');
 console.log('2. Set up security rules for your collections');
-console.log('3. Add sample data to collections: classes, courses, instructors');
+console.log('3. Add sample data to collections: classes, courses');
 console.log('4. Test the app connection\n');
 
 console.log('🚀 Ready to start! Run: npm start');

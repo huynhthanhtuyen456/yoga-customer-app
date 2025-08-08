@@ -1,15 +1,13 @@
 import { yogaService } from '@/services/yogaService';
-import { Instructor, YogaClass, YogaCourse } from '@/types/yoga';
+import { YogaClass, YogaCourse } from '@/types/yoga';
 import { useState } from 'react';
 
 export const useYogaData = () => {
   const [classes, setClasses] = useState<YogaClass[]>([]);
   const [courses, setCourses] = useState<YogaCourse[]>([]);
-  const [instructors, setInstructors] = useState<Instructor[]>([]);
   const [loading, setLoading] = useState({
     classes: false,
     courses: false,
-    instructors: false,
   });
   const [error, setError] = useState<string | null>(null);
 
@@ -54,7 +52,6 @@ export const useYogaData = () => {
     // Data
     classes,
     courses,
-    instructors,
     
     // Loading states
     loading,

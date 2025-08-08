@@ -22,7 +22,6 @@ const sampleClasses = [
   {
     name: "Hatha Yoga Basics",
     description: "Perfect for beginners. Learn fundamental yoga poses and breathing techniques in a gentle, supportive environment.",
-    instructor: "Sarah Johnson",
     duration: 60,
     level: "beginner",
     category: "hatha",
@@ -40,7 +39,6 @@ const sampleClasses = [
   {
     name: "Vinyasa Flow",
     description: "Dynamic flow class combining movement with breath. Build strength and flexibility through continuous sequences.",
-    instructor: "Michael Chen",
     duration: 75,
     level: "intermediate",
     category: "vinyasa",
@@ -58,7 +56,6 @@ const sampleClasses = [
   {
     name: "Power Yoga",
     description: "High-intensity yoga workout that builds strength, endurance, and flexibility. Not for the faint-hearted!",
-    instructor: "Emma Rodriguez",
     duration: 90,
     level: "advanced",
     category: "power",
@@ -76,7 +73,6 @@ const sampleClasses = [
   {
     name: "Gentle Yoga",
     description: "Slow-paced, gentle yoga perfect for relaxation and stress relief. Suitable for all levels and ages.",
-    instructor: "David Wilson",
     duration: 45,
     level: "beginner",
     category: "gentle",
@@ -94,7 +90,6 @@ const sampleClasses = [
   {
     name: "Meditation & Mindfulness",
     description: "Learn meditation techniques and mindfulness practices to reduce stress and improve mental clarity.",
-    instructor: "Lisa Park",
     duration: 30,
     level: "beginner",
     category: "meditation",
@@ -116,7 +111,6 @@ const sampleCourses = [
   {
     name: "Yoga Foundation Course",
     description: "A comprehensive 8-week course designed for beginners to build a strong yoga foundation. Learn proper alignment, breathing techniques, and basic philosophy.",
-    instructor: "Sarah Johnson",
     duration: 24, // hours
     level: "beginner",
     category: "foundation",
@@ -132,7 +126,6 @@ const sampleCourses = [
   {
     name: "Advanced Ashtanga Workshop",
     description: "Intensive 4-week workshop for experienced practitioners. Master advanced asanas and deepen your practice.",
-    instructor: "Emma Rodriguez",
     duration: 32, // hours
     level: "advanced",
     category: "workshop",
@@ -147,58 +140,9 @@ const sampleCourses = [
   }
 ];
 
-// Sample data for instructors
-const sampleInstructors = [
-  {
-    name: "Sarah Johnson",
-    bio: "Certified yoga instructor with 8 years of experience. Specializes in Hatha and Vinyasa yoga. Passionate about making yoga accessible to everyone.",
-    specialties: ["Hatha Yoga", "Vinyasa Flow", "Beginner Instruction"],
-    experience: 8,
-    certifications: ["RYT-500", "Yoga Alliance Certified"],
-    rating: 4.8,
-    totalStudents: 1200,
-    isActive: true,
-    createdAt: Timestamp.now(),
-    updatedAt: Timestamp.now()
-  },
-  {
-    name: "Michael Chen",
-    bio: "Experienced yoga teacher with a background in martial arts. Combines traditional yoga with modern fitness principles.",
-    specialties: ["Vinyasa Flow", "Power Yoga", "Strength Building"],
-    experience: 6,
-    certifications: ["RYT-200", "Personal Trainer"],
-    rating: 4.7,
-    totalStudents: 800,
-    isActive: true,
-    createdAt: Timestamp.now(),
-    updatedAt: Timestamp.now()
-  },
-  {
-    name: "Emma Rodriguez",
-    bio: "Advanced yoga instructor and former professional athlete. Specializes in challenging, high-intensity yoga classes.",
-    specialties: ["Power Yoga", "Advanced Asanas", "Athletic Training"],
-    experience: 10,
-    certifications: ["RYT-500", "Sports Medicine"],
-    rating: 4.9,
-    totalStudents: 1500,
-    isActive: true,
-    createdAt: Timestamp.now(),
-    updatedAt: Timestamp.now()
-  }
-];
-
 async function seedData() {
   try {
     console.log('🌱 Seeding Firebase with sample data...\n');
-
-    // Add instructors first
-    console.log('Adding instructors...');
-    const instructorRefs = [];
-    for (const instructor of sampleInstructors) {
-      const docRef = await addDoc(collection(db, 'instructors'), instructor);
-      instructorRefs.push(docRef.id);
-      console.log(`✅ Added instructor: ${instructor.name}`);
-    }
 
     // Add classes
     console.log('\nAdding classes...');
@@ -219,7 +163,6 @@ async function seedData() {
     }
 
     console.log('\n🎉 Sample data successfully added to Firebase!');
-    console.log(`📊 Added ${sampleInstructors.length} instructors`);
     console.log(`📊 Added ${sampleClasses.length} classes`);
     console.log(`📊 Added ${sampleCourses.length} courses`);
 

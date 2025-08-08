@@ -1,5 +1,5 @@
 import { db } from '@/config/firebase';
-import { Instructor, YogaClass, YogaCourse } from '@/types/yoga';
+import { YogaClass, YogaCourse } from '@/types/yoga';
 import {
   collection,
   doc,
@@ -15,7 +15,6 @@ export class YogaService {
   // Collection references
   private classesCollection = collection(db, 'yogaClasses');
   private coursesCollection = collection(db, 'yogaCourses');
-  private instructorsCollection = collection(db, 'instructors');
 
   // Convert Firestore timestamp to Date
   private convertTimestamp(timestamp: any): Date {
