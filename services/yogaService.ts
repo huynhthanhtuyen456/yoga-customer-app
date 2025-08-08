@@ -63,60 +63,6 @@ export class YogaService {
     }
   }
 
-  // Get classes by level
-  async getClassesByLevel(level: YogaClass['level']): Promise<YogaClass[]> {
-    try {
-      const q = query(
-        this.classesCollection,
-        where('level', '==', level),
-        orderBy('createdAt', 'desc')
-      );
-      
-      const querySnapshot = await getDocs(q);
-      const classes: YogaClass[] = [];
-      
-      querySnapshot.forEach((doc) => {
-        const data = doc.data();
-        classes.push({
-          id: doc.id,
-          ...this.convertTimestamps(data)
-        } as YogaClass);
-      });
-      
-      return classes;
-    } catch (error) {
-      console.error('Error fetching classes by level:', error);
-      throw error;
-    }
-  }
-
-  // Get classes by category
-  async getClassesByCategory(category: YogaClass['category']): Promise<YogaClass[]> {
-    try {
-      const q = query(
-        this.classesCollection,
-        where('category', '==', category),
-        orderBy('createdAt', 'desc')
-      );
-      
-      const querySnapshot = await getDocs(q);
-      const classes: YogaClass[] = [];
-      
-      querySnapshot.forEach((doc) => {
-        const data = doc.data();
-        classes.push({
-          id: doc.id,
-          ...this.convertTimestamps(data)
-        } as YogaClass);
-      });
-      
-      return classes;
-    } catch (error) {
-      console.error('Error fetching classes by category:', error);
-      throw error;
-    }
-  }
-
   // Get a specific class by ID
   async getClassById(id: string): Promise<YogaClass | null> {
     try {
@@ -165,34 +111,6 @@ export class YogaService {
     }
   }
 
-  // Get courses by level
-  async getCoursesByLevel(level: YogaCourse['level']): Promise<YogaCourse[]> {
-    try {
-      const q = query(
-        this.coursesCollection,
-        where('level', '==', level),
-        where('isActive', '==', true),
-        orderBy('startDate', 'desc')
-      );
-      
-      const querySnapshot = await getDocs(q);
-      const courses: YogaCourse[] = [];
-      
-      querySnapshot.forEach((doc) => {
-        const data = doc.data();
-        courses.push({
-          id: doc.id,
-          ...this.convertTimestamps(data)
-        } as YogaCourse);
-      });
-      
-      return courses;
-    } catch (error) {
-      console.error('Error fetching courses by level:', error);
-      throw error;
-    }
-  }
-
   // Get a specific course by ID
   async getCourseById(id: string): Promise<YogaCourse | null> {
     try {
@@ -210,54 +128,6 @@ export class YogaService {
       return null;
     } catch (error) {
       console.error('Error fetching course by ID:', error);
-      throw error;
-    }
-  }
-
-  // Get all instructors
-  async getAllInstructors(): Promise<Instructor[]> {
-    try {
-      const q = query(
-        this.instructorsCollection,
-        where('isActive', '==', true),
-        orderBy('rating', 'desc')
-      );
-      
-      const querySnapshot = await getDocs(q);
-      const instructors: Instructor[] = [];
-      
-      querySnapshot.forEach((doc) => {
-        const data = doc.data();
-        instructors.push({
-          id: doc.id,
-          ...this.convertTimestamps(data)
-        } as Instructor);
-      });
-      
-      return instructors;
-    } catch (error) {
-      console.error('Error fetching instructors:', error);
-      throw error;
-    }
-  }
-
-  // Get a specific instructor by ID
-  async getInstructorById(id: string): Promise<Instructor | null> {
-    try {
-      const docRef = doc(this.instructorsCollection, id);
-      const docSnap = await getDoc(docRef);
-      
-      if (docSnap.exists()) {
-        const data = docSnap.data();
-        return {
-          id: docSnap.id,
-          ...this.convertTimestamps(data)
-        } as Instructor;
-      }
-      
-      return null;
-    } catch (error) {
-      console.error('Error fetching instructor by ID:', error);
       throw error;
     }
   }

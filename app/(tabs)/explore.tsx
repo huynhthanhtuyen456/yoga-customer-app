@@ -20,8 +20,6 @@ export default function TabTwoScreen() {
     error,
     fetchClasses,
     fetchCourses,
-    getClassesByLevel,
-    getClassesByCategory,
   } = useYogaData();
 
   const [selectedLevel, setSelectedLevel] = useState<'beginner' | 'intermediate' | 'advanced'>('beginner');

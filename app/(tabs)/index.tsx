@@ -17,7 +17,6 @@ export default function HomeScreen() {
     loading,
     fetchClasses,
     fetchCourses,
-    getClassesByLevel,
   } = useYogaData();
 
   useEffect(() => {
@@ -26,7 +25,6 @@ export default function HomeScreen() {
     fetchCourses();
   }, []);
 
-  const classesByLevel = getClassesByLevel();
   const featuredClasses = classes.slice(0, 3); // Show first 3 classes
   const featuredCourses = courses.slice(0, 2); // Show first 2 courses
 
