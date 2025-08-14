@@ -10,33 +10,6 @@ interface YogaCourseCardProps {
 }
 
 export const YogaCourseCard: React.FC<YogaCourseCardProps> = ({ course, onPress }) => {
-  // const getLevelColor = (level: string) => {
-  //   switch (level) {
-  //     case 'beginner':
-  //       return '#4CAF50';
-  //     case 'intermediate':
-  //       return '#FF9800';
-  //     case 'advanced':
-  //       return '#F44336';
-  //     default:
-  //       return '#757575';
-  //   }
-  // };
-
-  // const getCategoryIcon = (category: string) => {
-  //   switch (category) {
-  //     case 'foundation':
-  //       return '🏗️';
-  //     case 'specialized':
-  //       return '🎯';
-  //     case 'retreat':
-  //       return '🏔️';
-  //     case 'workshop':
-  //       return '🔧';
-  //     default:
-  //       return '📚';
-  //   }
-  // };
 
   const formatDate = (date: Date) => {
     return date.toLocaleDateString('en-US', {
@@ -46,14 +19,11 @@ export const YogaCourseCard: React.FC<YogaCourseCardProps> = ({ course, onPress 
     });
   };
 
-  // const isUpcoming = course.startDate > new Date();
-
   return (
     <TouchableOpacity onPress={onPress}>
       <ThemedView style={styles.dateRow}>
         <ThemedText style={styles.dateValue}>{course.dayOfWeek}</ThemedText>
       </ThemedView>
-      {/* <ThemedView style={[styles.card, isUpcoming && styles.upcomingCard]}> */}
         <ThemedView style={styles.header}>
           <ThemedView style={styles.titleContainer}>
           </ThemedView>
@@ -66,11 +36,6 @@ export const YogaCourseCard: React.FC<YogaCourseCardProps> = ({ course, onPress 
             <ThemedText style={styles.detailValue}>{course.durationMinutes} Minutes</ThemedText>
           </ThemedView>
           
-          {/* <ThemedView style={styles.detailRow}>
-            <ThemedText style={styles.detailLabel}>Classes:</ThemedText>
-            <ThemedText style={styles.detailValue}>{course.totalClasses || 0} sessions</ThemedText>
-          </ThemedView> */}
-          
           <ThemedView style={styles.detailRow}>
             <ThemedText style={styles.detailLabel}>Price:</ThemedText>
             <ThemedText style={styles.detailValue}>${course.price}</ThemedText>
@@ -82,25 +47,6 @@ export const YogaCourseCard: React.FC<YogaCourseCardProps> = ({ course, onPress 
         <ThemedText style={styles.description} numberOfLines={3}>
           {course.description}
         </ThemedText>
-
-        {/* <ThemedView style={styles.dates}>
-          <ThemedView style={styles.dateRow}>
-            <ThemedText style={styles.dateLabel}>Start Date:</ThemedText>
-            <ThemedText style={styles.dateValue}>{formatDate(course.startDate)}</ThemedText>
-          </ThemedView>
-          
-          <ThemedView style={styles.dateRow}>
-            <ThemedText style={styles.dateLabel}>End Date:</ThemedText>
-            <ThemedText style={styles.dateValue}>{formatDate(course.endDate)}</ThemedText>
-          </ThemedView>
-        </ThemedView> */}
-
-        {/* {isUpcoming && (
-          <ThemedView style={styles.upcomingBadge}>
-            <ThemedText style={styles.upcomingText}>Upcoming</ThemedText>
-          </ThemedView>
-        )} */}
-      {/* </ThemedView> */}
     </TouchableOpacity>
   );
 };

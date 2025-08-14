@@ -52,21 +52,6 @@ export const YogaClassCard: React.FC<YogaClassCardProps> = ({ yogaClass, onPress
   return (
     <TouchableOpacity onPress={onPress}>
       <ThemedView style={[styles.card]}>
-        {/* <ThemedView style={styles.header}>
-          <ThemedView style={styles.titleContainer}>
-            <ThemedText style={styles.categoryIcon}>
-              {getCategoryIcon(yogaClass.category)}
-            </ThemedText>
-            <ThemedText type="defaultSemiBold" style={styles.title}>
-              {yogaClass.name}
-            </ThemedText>
-          </ThemedView>
-          <ThemedView style={[styles.levelBadge, { backgroundColor: getLevelColor(yogaClass.level) }]}>
-            <ThemedText style={styles.levelText}>
-              {yogaClass.level.charAt(0).toUpperCase() + yogaClass.level.slice(1)}
-            </ThemedText>
-          </ThemedView>
-        </ThemedView> */}
 
         <ThemedText style={styles.description} numberOfLines={2}>
           {yogaClass.comments}
@@ -87,30 +72,7 @@ export const YogaClassCard: React.FC<YogaClassCardProps> = ({ yogaClass, onPress
             <ThemedText style={styles.detailLabel}>Date:</ThemedText>
             <ThemedText style={styles.detailValue}>{yogaClass.date}</ThemedText>
           </ThemedView>
-          
-          {/* <ThemedView style={styles.detailRow}>
-            <ThemedText style={styles.detailLabel}>Available:</ThemedText>
-            <ThemedText style={[styles.detailValue, isFull && styles.fullText]}>
-              {isFull ? 'Full' : `${availableSpots} spots`}
-            </ThemedText>
-          </ThemedView> */}
         </ThemedView>
-
-        {/* {yogaClass.schedule && yogaClass.schedule.length > 0 && (
-          <ThemedView style={styles.schedule}>
-            <ThemedText style={styles.scheduleTitle}>Schedule:</ThemedText>
-            {yogaClass.schedule.slice(0, 2).map((session, index) => (
-              <ThemedText key={index} style={styles.scheduleItem}>
-                {session.day} at {session.time}
-              </ThemedText>
-            ))}
-            {yogaClass.schedule.length > 2 && (
-              <ThemedText style={styles.moreSessions}>
-                +{yogaClass.schedule.length - 2} more sessions
-              </ThemedText>
-            )}
-          </ThemedView>
-        )} */}
       </ThemedView>
     </TouchableOpacity>
   );
