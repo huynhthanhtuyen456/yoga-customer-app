@@ -7,12 +7,12 @@ import { YogaClass } from '@/types/yoga';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import React, { useState } from 'react';
 import {
-    ActivityIndicator,
-    Alert,
-    ScrollView,
-    StyleSheet,
-    TextInput,
-    TouchableOpacity,
+  ActivityIndicator,
+  Alert,
+  ScrollView,
+  StyleSheet,
+  TextInput,
+  TouchableOpacity,
 } from 'react-native';
 
 interface ClassSearchUIProps {
@@ -31,12 +31,6 @@ export const ClassSearchUI: React.FC<ClassSearchUIProps> = ({ onClassPress }) =>
   // Results and loading states
   const [searchResults, setSearchResults] = useState<YogaClass[]>([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [searchType, setSearchType] = useState<'simple' | 'advanced'>('simple');
-
-  // Day of week options
-  const dayOfWeekOptions: YogaClass['dayOfWeek'][] = [
-    'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'
-  ];
 
   // Format date for display
   const formatDate = (date: Date | null): string => {
@@ -153,11 +147,11 @@ export const ClassSearchUI: React.FC<ClassSearchUIProps> = ({ onClassPress }) =>
               </ThemedText>
             </TouchableOpacity>
           </ThemedView>
-          
-          <TouchableOpacity style={styles.searchButton} onPress={searchAdvanced}>
-            <ThemedText style={styles.buttonText}>Search</ThemedText>
-          </TouchableOpacity>
         </ThemedView>
+
+        <TouchableOpacity style={styles.searchButton} onPress={searchAdvanced}>
+          <ThemedText style={styles.buttonText}>Search</ThemedText>
+        </TouchableOpacity>
 
         {/* Clear Search Button */}
         <TouchableOpacity style={styles.clearButton} onPress={clearSearch}>
@@ -354,6 +348,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     alignItems: 'center',
     marginBottom: 20,
+    marginTop: 16,
   },
   clearButtonText: {
     color: '#fff',
